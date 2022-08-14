@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
+.section {
+    margin-top: 55px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.section p {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin-top: 55px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.left.sidebar {
+    flex: 1;
+    padding-right: 120px;
 }
 
-.App-link {
-  color: #61dafb;
+.year {
+    padding-bottom: 55px;
+    padding-top: 55px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.year input[type="text"] {
+    width: 25px;
+    border-bottom: 1px solid;
+}
+
+.loan {
+    display: flex;
+    margin-bottom: 12px;
+    justify-content: space-between;
+}
+
+.div {
+    border-bottom: 1px solid;
+}
+.interest input[type="text"] {
+    width: 42px;
+}
+
+.loan h2 {
+    color: #00334E;
+    font-family: "Titillium Web",sans-serif;
+    line-height: 20px;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0px;
+    opacity: .5;
+    text-transform: uppercase;
+
+}
+
+.comun input {
+    width: 100px;
+}
+
+
+input[type="text"] {
+    text-align: end;
+    border: 0px solid;
+    font-weight: 500;
+    outline: none;
+    font-size: 18px;
+}
+
+.comun {
+    border-bottom: 1px solid ;
+}
+
+.comun span {
+    color: #00334E;
+    font-size: 15px;
+   
+}
+
+input[type="range"] {
+        width: 100%;
+}
+
+.right.sidebar {
+    width: 250px;
+}
+
+.right .label {
+    color: #00334e;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0 0 25px;
+}
+
+.right .value {
+    color: #00334e;
+    font-size: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-left: 8px;
+    line-height: 0;
+}
+
+.right .amount {
+    margin-bottom: 44px;
+}
+
+.right .currency {
+    font-size: 12px;
+    position: absolute;
+    top: -3px;
+    left: 0;
+}
+
+.right .emi .currency {
+    top: -8px;
+}
+
+.right .emi .value {
+    color: #e6a127;
+    font-size: 42px;
+}
+
+.bot {
+    display: flex;
+    color: #000000;
+    font-size: 12px;
+    justify-content: space-between;
+}
+
+.rag {
+    display: flex;
+    color: #000000;
+    font-size: 12px;
+    justify-content: space-between;
+}
+
+.rang {
+    display: flex;
+    color: #000000;
+    font-size: 12px;
+    justify-content: space-between;
 }

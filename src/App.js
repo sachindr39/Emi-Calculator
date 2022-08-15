@@ -1,16 +1,26 @@
 import './App.css';
 import React, { useState } from 'react';
 import { getEMI, getEventValue, getTotalPay, getInterestPay, getCurrency } from './functions';
-
+import { Graph } from './graph';
 function App() {
 
 	const [amount, setAmount] = useState(500000);
-	const [year, setYear] = useState(3);
-	const [interest, setInterest] = useState(7);
+	const [year, setYear] = useState(1);
+	const [interest, setInterest] = useState(15);
 
 	let EMI = getEMI(amount, interest, year);
 	let totalPay = getTotalPay(year, EMI);
 	let interestPay = getInterestPay(totalPay, amount);
+
+	// let Graphs = Graph(amount, interestPay)
+	// console.log(amount)
+	// console.log(interestPay)
+
+	let amountPercentage = ((amount / totalPay) * 100).toFixed(2);
+	console.log(amountPercentage);
+
+	let interestPayPercentage = ((interestPay / totalPay) * 100).toFixed(2);
+	console.log(interestPayPercentage);
 
 	return (
 		<div className='section'>
@@ -35,7 +45,7 @@ function App() {
 						<input
 							type="range"
 							max="100000000"
-							min="0"
+							min="100000"
 							value={amount}
 							onChange={(event) => {
 								setAmount(getEventValue(event))
@@ -60,6 +70,7 @@ function App() {
 						</div>
 						<input
 							type="range"
+							min="1"
 							max="30"
 							value={year}
 							onChange={(event) => {
@@ -75,18 +86,19 @@ function App() {
 						<div className='loan'>
 							<h2>INTEREST RATE (% P.A.)</h2>
 							<div className='div'>
-							<input
-								type="text"
-								value={interest}
-								onChange={(event) => {
-									setInterest(getEventValue(event))
-								}}
-							/>
+								<input
+									type="text"
+									value={interest}
+									onChange={(event) => {
+										setInterest(getEventValue(event))
+									}}
+								/>
 								<span className='symbol'>%</span>
 							</div>
 						</div>
 						<input
 							type="range"
+							min="1"
 							max="15"
 							step="0.01"
 							value={interest}
@@ -95,7 +107,7 @@ function App() {
 							}}
 						/>
 						<div className='rang'>
-							<div className='star' > 0 </div>
+							<div className='star' > 1 </div>
 							<div className='clo'> 15 </div>
 						</div>
 					</div>
@@ -111,8 +123,10 @@ function App() {
 					<div className='amount'>
 						<div className='label'>Principal Amount</div>
 						<div className='value'>
-							<span className='currency'>₹</span>
-							{getCurrency(amount)}
+							<div className='principle'>
+								<span className='currency'>₹</span>
+								{getCurrency(amount)}
+							</div>
 						</div>
 					</div>
 					<div className='amount'>
@@ -129,6 +143,16 @@ function App() {
 							{getCurrency(totalPay)}
 						</div>
 					</div>
+
+				</div>
+				<div>
+					<figure className="highcharts-figure">
+						<Graph
+							amountPercentage={amountPercentage}
+							interestPayPercentage={interestPayPercentage}
+						/>
+					</figure>
+
 				</div>
 			</div>
 		</div>
